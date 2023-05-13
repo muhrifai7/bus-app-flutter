@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 
+import '../helper/Constant.dart';
+
 class ExpandScreen extends StatefulWidget {
   const ExpandScreen({Key? key}) : super(key: key);
 
@@ -82,6 +84,7 @@ class _ExpandScreenSate extends State<ExpandScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('Halaman Pengeluaran'),
+          backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
         ),
         body: Container(
             margin: const EdgeInsets.all(10),
@@ -413,11 +416,8 @@ class _ExpandScreenSate extends State<ExpandScreen> {
                                       onPressed: () =>
                                           _handleCountPremi(formkey),
                                       style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color.fromARGB(
-                                            255,
-                                            39,
-                                            164,
-                                            56), // set the background color
+                                        backgroundColor: Color(int.parse(
+                                            '0xFF${Constant.prime_color}')), // set the background color
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                               10), // set the border radius
@@ -516,11 +516,8 @@ class _ExpandScreenSate extends State<ExpandScreen> {
                                         // },
 
                                         style: ElevatedButton.styleFrom(
-                                          backgroundColor: const Color.fromARGB(
-                                              255,
-                                              30,
-                                              109,
-                                              174), // set the background color
+                                          backgroundColor: Color(int.parse(
+                                              '0xFF${Constant.prime_color}')), // set the background color
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(
                                                 10), // set the border radius

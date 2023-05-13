@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../view/order_cabin.dart';
 import '../view/order_passanger.dart';
+import '../helper/Constant.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class _OrderScreenSate extends State<OrderScreen> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('Pemesanan'),
+          backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
           bottom: const TabBar(
             tabs: myTabs,
           ),

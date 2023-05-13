@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:confirm_dialog/confirm_dialog.dart';
 import 'package:flutter_application_1/db/config.dart';
+import '../helper/Constant.dart';
 
 class PasanggerReceipt extends StatelessWidget {
   final String? passengerName;
@@ -69,6 +70,7 @@ class PasanggerReceipt extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Tiket Kuitansi'),
+          backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
         ),
         body: Column(children: <Widget>[
           Expanded(

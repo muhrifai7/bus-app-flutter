@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/login_form.dart';
 import 'package:flutter_application_1/pages/signup_form.dart';
 import 'package:flutter_application_1/pages/dashboard.dart';
+import 'package:flutter_application_1/pages/ticket.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/signup': (context) => const SignupForm(),
         '/dashboard': (context) => const Dashboard(),
+        '/detail-ticket': (context) => const DataTableTiket(),
       },
       theme: ThemeData(
           primaryColor: Colors.black,

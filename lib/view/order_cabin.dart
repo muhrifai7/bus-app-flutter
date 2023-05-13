@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'receipt_cabin.dart';
+import '../helper/Constant.dart';
 
 class OrderCabinScreen extends StatefulWidget {
   const OrderCabinScreen({Key? key}) : super(key: key);
@@ -251,8 +252,8 @@ class _OrderCabinScreenSate extends State<OrderCabinScreen> {
                       // },
 
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(
-                            255, 30, 109, 174), // set the background color
+                        backgroundColor: Color(int.parse(
+                            '0xFF${Constant.prime_color}')), // set the background color
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                               10), // set the border radius

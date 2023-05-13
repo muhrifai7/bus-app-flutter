@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/api/api_profile.dart';
 
 import '../models/profile.dart';
+import '../helper/Constant.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -52,16 +53,9 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const TextField(
-            decoration: InputDecoration(
-              hintText: 'Search...',
-              border: InputBorder.none,
-            ),
-          ),
-          leading: IconButton(
-            icon: const Icon(Icons.search),
-            onPressed: () {},
-          ),
+          automaticallyImplyLeading: false,
+          title: const Text('Beranda'),
+          backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
         ),
         body: Visibility(
             visible: isLoading,

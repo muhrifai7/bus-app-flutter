@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'receipt_passanger.dart';
+import '../helper/Constant.dart';
 
 class OrderPassangerScreen extends StatefulWidget {
   const OrderPassangerScreen({Key? key}) : super(key: key);
@@ -249,8 +250,8 @@ class _OrderPassangerScreenSate extends State<OrderPassangerScreen> {
                       // },
 
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(
-                            255, 30, 109, 174), // set the background color
+                        backgroundColor:
+                            Color(int.parse('0xFF${Constant.prime_color}')),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                               10), // set the border radius

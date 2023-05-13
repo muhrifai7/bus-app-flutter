@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 // import 'package:printing/printing.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import '../helper/Constant.dart';
 
 class CabinReceipt extends StatelessWidget {
   final String? passengerName;
@@ -34,6 +35,7 @@ class CabinReceipt extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Tiket Kuitansi'),
+          backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
         ),
         body: Column(children: <Widget>[
           Expanded(
