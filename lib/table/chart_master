@@ -1,0 +1,47 @@
+class ChartMaster {
+  final int id;
+  required this account_code;
+  final String account_name;
+  final String account_type;
+  final int inactive;
+  final String no_pol;
+  final int id_bus;
+  final String no_rek;
+  final int id_company;
+
+
+  const ChartMaster({
+    required int id;
+    required this account_code;
+    required this account_name;
+    required this account_type;
+    required inactive;
+    required this no_pol;
+    required id_bus;
+    required this no_rek;
+    required id_company;
+  });
+
+  // Convert a ChartMaster into a Map. The keys must correspond to the names of the
+  // columns in the database.
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'account_code': account_code,
+      'account_name': account_name,
+      'account_type': account_type,
+      'inactive': inactive,
+      'no_pol': no_pol,
+      'id_bus': id_bus,
+      'no_rek': no_rek,
+      'id_company': id_company
+    };
+  }
+
+  // Implement toString to make it easier to see information about
+  // each dog when using the print statement.
+  @override
+  String toString() {
+    return 'Dog{id: $id, name: $name, age: $age}';
+  }
+}
