@@ -2,7 +2,7 @@ import 'package:flutter_application_1/models/profile.dart';
 import 'package:http/http.dart' show Client;
 
 class ApiService {
-  final String baseUrl = "https://reqres.in";
+  final String baseUrl = "https://apibus.akasaaa.com/public/api";
   Client client = Client();
 
   Future<List<Profile>?> getProfiles() async {
@@ -12,6 +12,20 @@ class ApiService {
       return profileFromJson(response.body);
     } else {
       return null;
+    }
+  }
+
+  login(String name, String password) async {
+    Uri url = Uri.parse("$baseUrl/login?username=$name&password=$password");
+    final response = await client.post(url, body: {
+      'username': name,
+      'password': password,
+    });
+    print(response);
+    if (response.statusCode == 200) {
+      return loginToJson(response.body);
+    } else {
+      return "asdsa";
     }
   }
 

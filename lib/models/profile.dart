@@ -44,6 +44,11 @@ List<Profile> profileFromJson(String jsonData) {
   return List<Profile>.from(data['data'].map((item) => Profile.fromJson(item)));
 }
 
+loginToJson(String jsonData) {
+  final data = json.decode(jsonData);
+  return data;
+}
+
 String profileToJson(Profile data) {
   final jsonData = data.toJson();
   return json.encode(jsonData);

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/api/api_profile.dart';
 import 'package:form_field_validator/form_field_validator.dart';
-import 'package:flutter_application_1/models/http_statefull.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -13,6 +13,26 @@ class _MyStatefulWidgetState extends State<LoginForm> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
+
+  _login() async {
+    if (formkey.currentState != null) {
+      if (formkey.currentState!.validate()) {
+        try {
+          ApiService apiService = ApiService();
+          String result = await apiService.login(
+              nameController.text, passwordController.text);
+          print("dasdasd  =$result");
+          Navigator.pushNamed(context, '/dashboard');
+          // process the response data here
+        } catch (error) {
+          // handle the error here
+          print('An error occurred: $error');
+        }
+      } else {
+        print("Not Validated");
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +68,12 @@ class _MyStatefulWidgetState extends State<LoginForm> {
                     controller: nameController,
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
-                        labelText: 'Email',
-                        hintText: 'Enter valid email id as abc@gmail.com'),
+                        labelText: 'Nama',
+                        hintText: 'Masukan Nama'),
                     validator: MultiValidator([
                       RequiredValidator(errorText: "* Required"),
-                      EmailValidator(errorText: "Enter valid email id"),
+                      MinLengthValidator(6,
+                          errorText: "Nama harus lebih dari 3 karakter"),
                     ])),
               ),
               Padding(
@@ -64,14 +85,11 @@ class _MyStatefulWidgetState extends State<LoginForm> {
                     decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         labelText: 'Password',
-                        hintText: 'Enter secure password'),
+                        hintText: 'Masukan password'),
                     validator: MultiValidator([
                       RequiredValidator(errorText: "* Required"),
                       MinLengthValidator(6,
-                          errorText: "Password should be atleast 6 characters"),
-                      MaxLengthValidator(15,
-                          errorText:
-                              "Password should not be greater than 15 characters")
+                          errorText: "Password harus lebih dari 5 karakter"),
                     ])
                     //validatePassword,        //Function to check validation
                     ),
@@ -89,23 +107,24 @@ class _MyStatefulWidgetState extends State<LoginForm> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                   ),
-                  onPressed: () async {
-                    if (formkey.currentState != null) {
-                      if (formkey.currentState!.validate()) {
-                        try {
-                          await HttpStateFull.callApi(
-                              nameController.text, passwordController.text);
-                          Navigator.pushNamed(context, '/dashboard');
-                          // process the response data here
-                        } catch (error) {
-                          // handle the error here
-                          // print('An error occurred: $error');
-                        }
-                      } else {
-                        // print("Not Validated");
-                      }
-                    }
-                  },
+                  onPressed: _login,
+                  // onPressed: () async {
+                  //   if (formkey.currentState != null) {
+                  //     if (formkey.currentState!.validate()) {
+                  //       try {
+                  //         await ApiService.login(
+                  //             nameController.text, passwordController.text);
+                  //         Navigator.pushNamed(context, '/dashboard');
+                  //         // process the response data here
+                  //       } catch (error) {
+                  //         // handle the error here
+                  //         // print('An error occurred: $error');
+                  //       }
+                  //     } else {
+                  //       // print("Not Validated");
+                  //     }
+                  //   }
+                  // },
                   child: const Text(
                     'Login',
                     style: TextStyle(color: Colors.white, fontSize: 25),

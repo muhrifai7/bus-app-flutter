@@ -70,7 +70,7 @@ class _HomeScreen extends State<HomeScreen> {
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(31, 17, 9, 9)),
+                      color: Color.fromARGB(255, 14, 11, 11)),
                 ),
               ),
               const CircleAvatar(
@@ -85,7 +85,7 @@ class _HomeScreen extends State<HomeScreen> {
                   style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 17, 16, 16)),
+                      color: Color.fromARGB(200, 16, 13, 13)),
                 ),
               ),
               Container(
@@ -95,7 +95,7 @@ class _HomeScreen extends State<HomeScreen> {
                   style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black),
+                      color: Color.fromARGB(100, 16, 13, 13)),
                 ),
               ),
               Column(
@@ -109,7 +109,7 @@ class _HomeScreen extends State<HomeScreen> {
                         const Text(
                           "Kendaraan",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 15, 0, 0),
+                            color: Color.fromARGB(200, 15, 0, 0),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -119,7 +119,7 @@ class _HomeScreen extends State<HomeScreen> {
                         Text(
                           chartMasters[0]["vehicle"],
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 49, 47, 47),
+                            color: Color.fromARGB(200, 49, 47, 47),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -135,7 +135,7 @@ class _HomeScreen extends State<HomeScreen> {
                         const Text(
                           "trayek",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 15, 0, 0),
+                            color: Color.fromARGB(200, 15, 0, 0),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -145,7 +145,7 @@ class _HomeScreen extends State<HomeScreen> {
                         Text(
                           chartMasters[0]["trayek"],
                           style: const TextStyle(
-                            color: Color.fromARGB(255, 49, 47, 47),
+                            color: Color.fromARGB(200, 49, 47, 47),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -161,7 +161,7 @@ class _HomeScreen extends State<HomeScreen> {
                         const Text(
                           "Kru Bus",
                           style: TextStyle(
-                            color: Color.fromARGB(255, 15, 0, 0),
+                            color: Color.fromARGB(200, 15, 0, 0),
                             fontSize: 20.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -172,7 +172,7 @@ class _HomeScreen extends State<HomeScreen> {
                           child: Text(
                             chartMasters[0]["crew_bus"],
                             style: const TextStyle(
-                              color: Color.fromARGB(255, 49, 47, 47),
+                              color: Color.fromARGB(200, 49, 47, 47),
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                               overflow: TextOverflow.ellipsis,
