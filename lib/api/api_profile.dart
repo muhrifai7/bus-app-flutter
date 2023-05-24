@@ -15,17 +15,21 @@ class ApiService {
     }
   }
 
-  login(String name, String password) async {
-    Uri url = Uri.parse("$baseUrl/login?username=$name&password=$password");
+  Future login(String name, String password) async {
+    final url = Uri.parse('https://apibus.akasaaa.com/public/api/login');
     final response = await client.post(url, body: {
       'username': name,
       'password': password,
     });
-    print(response);
     if (response.statusCode == 200) {
-      return loginToJson(response.body);
+      // Process the successful response
+      final jsonData = loginToJson(response.body);
+      print('Parsed response: $jsonData');
+      return jsonData;
     } else {
-      return "asdsa";
+      // Handle the error response
+      print('Error: ${response.reasonPhrase}');
+      return response.body;
     }
   }
 

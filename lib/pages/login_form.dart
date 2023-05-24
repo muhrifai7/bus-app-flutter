@@ -21,8 +21,8 @@ class _MyStatefulWidgetState extends State<LoginForm> {
           ApiService apiService = ApiService();
           String result = await apiService.login(
               nameController.text, passwordController.text);
-          print("dasdasd  =$result");
-          Navigator.pushNamed(context, '/dashboard');
+          print(result);
+          // Navigator.pushNamed(context, '/dashboard');
           // process the response data here
         } catch (error) {
           // handle the error here
@@ -88,7 +88,7 @@ class _MyStatefulWidgetState extends State<LoginForm> {
                         hintText: 'Masukan password'),
                     validator: MultiValidator([
                       RequiredValidator(errorText: "* Required"),
-                      MinLengthValidator(6,
+                      MinLengthValidator(5,
                           errorText: "Password harus lebih dari 5 karakter"),
                     ])
                     //validatePassword,        //Function to check validation
