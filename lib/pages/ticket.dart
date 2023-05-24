@@ -59,27 +59,28 @@ class _DataTableTiketState extends State<DataTableTiket> {
         title: const Text('Daftar Tiket'),
         backgroundColor: Color(int.parse('0xFF${Constant.prime_color}')),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: isLoading
-            ? const Center(child: CircularProgressIndicator())
-            : DataTable(
-                columns: const [
-                  DataColumn(
-                    label: Text('Id Tiket'),
-                  ),
-                  DataColumn(
-                    label: Text('Nama Lengkap'),
-                  ),
-                  DataColumn(
-                    label: Text('Tanggal'),
-                  ),
-                  DataColumn(
-                    label: Text('Berangkat'),
-                  ),
-                ],
-                rows: rows,
-              ),
+      body: Visibility(
+        visible: isLoading,
+        replacement: const Center(
+          child: CircularProgressIndicator(),
+        ),
+        child: DataTable(
+          columns: const [
+            DataColumn(
+              label: Text('Id Tiket'),
+            ),
+            DataColumn(
+              label: Text('Nama Lengkap'),
+            ),
+            DataColumn(
+              label: Text('Tanggal'),
+            ),
+            DataColumn(
+              label: Text('Berangkat'),
+            ),
+          ],
+          rows: rows,
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/api/api_profile.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:flutter_application_1/pages/dashboard.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -13,20 +14,43 @@ class _MyStatefulWidgetState extends State<LoginForm> {
   GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
+  bool errorMessage = false;
 
   _login() async {
     if (formkey.currentState != null) {
       if (formkey.currentState!.validate()) {
         try {
           ApiService apiService = ApiService();
-          String result = await apiService.login(
+          Map<String, dynamic> result = await apiService.login(
               nameController.text, passwordController.text);
-          print(result);
-          // Navigator.pushNamed(context, '/dashboard');
+          int status = result["success"];
+          if (status == 1) {
+            String authToken = result["token"];
+            apiService.saveSession(authToken);
+            Map<String, dynamic> userData = {
+              "user": {
+                "id_user": 50,
+                // ...rest of the user data
+                "aktif": "Y"
+              }
+            };
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const Dashboard(),
+              ),
+            );
+          } else {
+            setState(() {
+              errorMessage = true;
+            });
+          }
           // process the response data here
         } catch (error) {
-          // handle the error here
           print('An error occurred: $error');
+          setState(() {
+            errorMessage = true;
+          });
         }
       } else {
         print("Not Validated");
@@ -59,6 +83,22 @@ class _MyStatefulWidgetState extends State<LoginForm> {
                 height: 20,
               ),
               const Text('BIS (Business Intelligence System'),
+              const SizedBox(
+                height: 20,
+              ),
+              if (errorMessage)
+                const SizedBox(
+                  height: 20,
+                ),
+              if (errorMessage)
+                const Text(
+                  "User not found",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 167, 12, 12),
+                    fontSize: 10.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               const SizedBox(
                 height: 20,
               ),

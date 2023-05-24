@@ -47,6 +47,8 @@ class _HomeScreen extends State<HomeScreen> {
         isLoading = true;
       });
     }
+    Future<String?> test = apiService.getSession();
+    print("dsadad = $test");
   }
 
   @override
